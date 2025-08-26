@@ -70,7 +70,7 @@ def main_config():
     run_command("sudo DEBIAN_FRONTEND=noninteractive apt-get -y install tshark")
     
     run_command("sudo apt-get install -y libpcre3 libpcre3-dbg libpcre3-dev build-essential autoconf automake libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libcap-ng-dev libcap-ng0 make libmagic-dev libnuma-dev python3-pip git flex bison linux-headers-$(uname -r) cmake gcc g++ libssl-dev python3-dev swig tcpdump")
-    run_command("sudo apt install libnl-genl-3-dev")
+    run_command("sudo apt install libnl-genl-3-dev libpcre2-dev")
 
     check_packages()
     run_command("sudo python3 scripts/post_uninstall_pack_api.py")
