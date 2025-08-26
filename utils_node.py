@@ -20,7 +20,7 @@ package_list = ["libpcre3","libpcre3-dbg", "libpcre3-dev", "build-essential", "a
                 "libtool", "libpcap-dev", "libnet1-dev", "libyaml-0-2", "libyaml-dev", "zlib1g", "zlib1g-dev",
                 "libcap-ng-dev", "libcap-ng0", "make", "libmagic-dev", "libnuma-dev", 'python3-pip', "git",
                 "flex", "bison", "linux-headers-$(uname -r)", "cmake", "gcc", "g++", "libssl-dev", "python3-dev", "swig",
-                "tshark", "tcpdump"]
+                "tshark", "tcpdump", "liblz4-dev", "libpcre2-dev", "libjansson-dev", "libunwind-dev", "rustc", "cargo"]
 uninstalled_packages = []
 extracted_features = []
 sid = 1000000
@@ -440,6 +440,7 @@ def rule_generator(file_to_read, file_to_write):
             sid += 1
 
     ## rules to a file
+    length_rules = len(rules)
     try:
         with open(file_to_write, 'w') as f:
             for rule in rules:
@@ -447,6 +448,8 @@ def rule_generator(file_to_read, file_to_write):
         print(f"Generated {len(rules)} Suricata rules in {file_to_write}")
     except IOError:
         print(f"Error: Could not write to {file_to_write}")
+
+    return length_rules
 
 ## calculate hash for model weights
 def get_model_weights_hash(model, hash_alg="sha256"):
