@@ -111,9 +111,10 @@ while True:
         x["predictions"] = prediction
         alert_features = x[x['predictions'] == 1]
         alert_features.to_json("/sgi/var/log/suricata/alert_features.json", orient="records", lines=True)
-        rule_generator("/sgi/var/log/suricata/alert_features.json", "/sgi/var/lib/suricata/rules/local.rules")
+        res = rule_generator("/sgi/var/log/suricata/alert_features.json", "/sgi/var/lib/suricata/rules/local.rules")
         time.sleep(3)
-        run_command("sudo /bin/systemctl --system restart suricata-pfring")
+        if res > 0:
+            run_command("sudo /bin/systemctl --system restart suricata-pfring")
 
         if before_hash != after_hash:
             print("[adnids] hashes are not same")
