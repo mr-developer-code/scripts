@@ -69,8 +69,8 @@ def main_config():
     run_command('echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections')
     run_command("sudo DEBIAN_FRONTEND=noninteractive apt-get -y install tshark")
     
-    run_command("sudo apt-get install -y libpcre3 libpcre3-dbg libpcre3-dev build-essential autoconf automake libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libcap-ng-dev libcap-ng0 make libmagic-dev libnuma-dev python3-pip git flex bison linux-headers-$(uname -r) cmake gcc g++ libssl-dev python3-dev swig tcpdump")
-    run_command("sudo apt install libnl-genl-3-dev libpcre2-dev")
+    run_command("sudo apt-get install -y libpcre3 libpcre3-dbg libpcre3-dev build-essential autoconf automake libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev libcap-ng-dev libcap-ng0 make libmagic-dev libnuma-dev python3-pip git flex bison linux-headers-$(uname -r) cmake gcc g++ libssl-dev python3-dev swig tcpdump liblz4-dev")
+    run_command("sudo apt install libnl-genl-3-dev libpcre2-dev libjansson-dev libunwind-dev rustc cargo")
 
     check_packages()
     run_command("sudo python3 scripts/post_uninstall_pack_api.py")
