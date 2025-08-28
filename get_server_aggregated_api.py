@@ -70,7 +70,7 @@ while True:
         model.set_weights(gm_weights)
         model.save("adnids_model.h5")
 
-        with open("/home/coder/Desktop/securegenai/sur_files/model_parameter_updated_by_server.txt", "w") as f:
+        with open("/sgi/sur_files/model_parameter_updated_by_server.txt", "w") as f:
             f.write("True")
             print("[adnids] model parameters are updated by server")
 
