@@ -123,7 +123,7 @@ while True:
     ## federated learning
     if condition_fed or re_transmit:
         if re_transmit:
-            with open("/home/coder/Desktop/securegenai/sur_files/model_parameter_updated_by_server.txt", "w") as f:
+            with open("/sgi/sur_files/model_parameter_updated_by_server.txt", "w") as f:
                 f.write("False")
                 
         gm_model = load_model("adnids_model.h5")
@@ -238,7 +238,7 @@ while True:
                     ind += 1
                 print("[adnids] \tDone")
 
-                with open("/home/coder/Desktop/securegenai/sur_files/model_parameter_updated_by_server.txt", "r") as f:
+                with open("/sgi/sur_files/model_parameter_updated_by_server.txt", "r") as f:
                     line = f.readline()
                     if "true" in line.lower():
                         re_transmit = True
