@@ -3,7 +3,7 @@ import shutil
 from ruamel.yaml import YAML
 import os
 import re
-import pwd
+import time
 
 ## initialization
 yaml = YAML()
@@ -239,6 +239,10 @@ def main_config():
     ## runs all api's
     run_command("sudo /bin/systemctl --system enable main-api")
     run_command("sudo /bin/systemctl --system start main-api")
+
+    time.sleep(15)
+    run_command("sudo /bin/systemctl --system restart suricata-pfring")
+    run_command("sudo /bin/systemctl --system restart main-api")
 
     with open("/sgi/sur_files/progress.txt","w") as f:
         f.write(str(100))
