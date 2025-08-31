@@ -54,7 +54,7 @@ def run_command(command):
     print(f"[Running] \"{command}\"")
 
     full_command = f"bash -lc \"{command}\""
-    print(full_command)
+    # print(full_command)
     child = pexpect.spawn(full_command, encoding="utf-8")
     child.logfile = sys.stdout  # Shows in terminal
 
