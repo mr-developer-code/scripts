@@ -21,7 +21,7 @@ while True:
             response = requests.post("https://apipost.huzaifa.cloud/api/progress", json=data)
             reply = response.json()
             if "received" in reply['message']:
-                print("[progress] data send")
+                # print("[progress] data send")
                 break
         except Exception:
             continue           
