@@ -114,7 +114,7 @@ while True:
         print("[adnids] rules")
 
         x["predictions"] = prediction
-        alert_features = x[x['predictions'] == 1]
+        alert_features = x[x['predictions'] != 2]
         alert_features.to_json("/sgi/var/log/suricata/alert_features.json", orient="records", lines=True)
         res = rule_generator("/sgi/var/log/suricata/alert_features.json", "/sgi/var/lib/suricata/rules/local.rules")
         time.sleep(3)
