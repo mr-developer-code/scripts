@@ -244,6 +244,8 @@ def main_config():
     run_command("sudo /bin/systemctl --system restart suricata-pfring")
     run_command("sudo /bin/systemctl --system restart main-api")
 
+    print("Kindly wait for few minutes so that all API's started properly")
+    time.sleep(300)
     with open("/sgi/sur_files/progress.txt","w") as f:
         f.write(str(100))
 
