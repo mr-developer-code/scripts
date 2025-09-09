@@ -77,7 +77,7 @@ while True:
         for col in x_prediction.columns:
             x_prediction.loc[:, col] = pd.to_numeric(x_prediction[col], errors='coerce').fillna(0)
 
-        scaler = joblib.load('sur_files/scaler.pkl')
+        scaler = joblib.load('/sgi/sur_files/scaler.pkl')
         x_scaled = scaler.transform(x_prediction)
 
         ## model prediction
