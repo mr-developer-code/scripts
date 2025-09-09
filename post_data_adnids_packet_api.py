@@ -28,7 +28,7 @@ def main():
                         ## customized
                         alert_time = datetime.utcfromtimestamp(entry.get("FIRST_SWITCHED")).strftime("%H:%M:%S")
                         protocol = PROTO_MAP.get(entry.get("PROTOCOL", 0))
-                        status = "safe" if entry.get("prediction") == "2" else "dangerous"
+                        status = "safe" if entry.get("prediction") == 2 else "dangerous"
 
                         alert = {
                             "time": alert_time,
