@@ -233,6 +233,8 @@ def extract_feature_from_log(file_path):
                     extracted_features.append(json.loads(line.strip()))
                 except json.JSONDecodeError:
                     continue  # Ignore malformed JSON lines
+        else:
+            print("No new records yet..")
     df = pd.DataFrame(extracted_features)
     return df
 
