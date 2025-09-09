@@ -77,8 +77,8 @@ while True:
         for col in x_prediction.columns:
             x_prediction.loc[:, col] = pd.to_numeric(x_prediction[col], errors='coerce').fillna(0)
 
-        scaler = MinMaxScaler()
-        x_scaled = scaler.fit_transform(x_prediction)
+        scaler = joblib.load('sur_files/scaler.pkl')
+        x_scaled = scaler.transform(x_prediction)
 
         ## model prediction
         print("[adnids] prediction")
