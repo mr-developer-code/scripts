@@ -22,7 +22,6 @@ package_list = ["libpcre3","libpcre3-dbg", "libpcre3-dev", "build-essential", "a
                 "flex", "bison", "linux-headers-$(uname -r)", "cmake", "gcc", "g++", "libssl-dev", "python3-dev", "swig",
                 "tshark", "tcpdump", "liblz4-dev", "libpcre2-dev", "libjansson-dev", "libunwind-dev", "rustc", "cargo"]
 uninstalled_packages = []
-extracted_features = []
 sid = 1000000
 
 ## Mapping from protocol number to name
@@ -221,6 +220,7 @@ def encrypt_parameter(model, context):
 
 ## load extracted features
 def extract_feature_from_log(file_path):
+    extracted_features = []
     global last_postion_extract_feature
     with open(file_path, 'r') as f:
         f.seek(last_postion_extract_feature)
